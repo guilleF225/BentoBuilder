@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+
+
+  --primary-100:#8A2BE2;
+  --primary-200:#c05fff;
+  --primary-300:#ffc5ff;
+  --accent-100:#9932CC;
+  --accent-200:#ffcbff;
+  --text-100:#FFFFFF;
+  --text-200:#e0e0e0;
+  --bg-100:#6A5ACD;
+  --bg-200:#7f6ce2;
+  --bg-300:#9d87ff;
+}
+body {
+  background: linear-gradient(180deg, var(--primary-100) 0%, var(--bg-100) 100%);
+
+}
+
+.BentoGrid {
+  display: grid;
+
+  grid-template-columns: repeat(dataColumns, 1fr);
+  grid-template-rows: (repeat(3, 1fr));
+}
+.grid-item {
+  padding: 1rem;
+
+  text-align: center;
+
+  border-radius: 0.5rem;
+
+}
+
+.item {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  text-align: center;
+  margin: 0.1rem;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  width: 150px;
+  height: 150px;
+}
