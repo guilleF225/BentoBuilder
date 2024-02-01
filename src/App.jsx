@@ -140,7 +140,7 @@ function App() {
 
   return (
     <div className="Container relative  flex  flex-col justify-center ">
-      <header className="flex flex-row h-12 p-4 items-center bg-[--bg-100] justify-evenly opacity-70 backdrop:blur-md border-b border-[--primary-200]">
+      <header className="flex w-full flex-row h-12 p-4 items-center bg-[--bg-100] justify-evenly opacity-70 backdrop:blur-md border-b border-[--primary-200]">
         <div>
           <h1 className="text-3xl font-bold text-[--primary-300]">
             Bento Grid Builder
@@ -164,7 +164,7 @@ function App() {
         </nav>
       </header>
       <div className="flex flex-row gap-4 justify-evenly p-4">
-        <aside className="flex flex-col min-w-52 float-start p-2 gap-2 h-full border border-[--primary-200] rounded-xl text-[--text-100] ">
+        <aside className="flex items-start flex-wrap flex-row  md:flex-nowrap md:flex-col min-w-52 md:float-start p-2 gap-2 md:h-full border border-[--primary-200] rounded-xl text-[--text-100] ">
           <h2 className="text-2xl ">Parameters : </h2>
           <p>Total items</p>{" "}
           <Input
@@ -233,7 +233,7 @@ function App() {
           )}
         </aside>
 
-        <main className="">
+        <main className="w-fit">
           <div className="BentoGrid" style={bentoGridStyles}>
             {renderItems()}
           </div>
