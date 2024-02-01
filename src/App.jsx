@@ -18,6 +18,7 @@ function App() {
   const [margin, setMargin] = useState(0)
   const [showCode, setShowCode] = useState(false)
   const [showContainerCode, setShowContainerCode] = useState(false)
+  // grid items base styles
   const [gridItemsStyles, setGridItemsStyles] = useState([{
     index: 0,
     gridArea: 'auto / auto / auto / auto'
@@ -62,17 +63,15 @@ function App() {
     index: 10,
     gridArea: 'auto / auto / auto / auto'
 },])
-  useEffect(() => {
-    console.log(gridItemsStyles)
-  }, [gridItemsStyles])
 
   useEffect(() => {
     setGridItemsStyles(Array.from({ length: totalItems }, (_, index) => ({
       index,
       gridArea: 'auto / auto / auto / auto'
     })))
-    console.log(gridItemsStyles)
   }, [])
+
+  //adjust grid items styles based on total items
 
   useEffect(() => {
     if (gridItemsStyles.length < totalItems) {
@@ -84,27 +83,25 @@ function App() {
       setGridItemsStyles(prev => prev.slice(0, totalItems))
     }
   }, [totalItems])
-  const handleExportCode = () => {
-    console.log(exportCode(), exportGridItemStyles())
-  }
-  
+
+  // hide outdated code to prevent crashing 
   useEffect(() => {
     setShowCode(false)
     setShowContainerCode(false)
   }, [totalItems])
 
-
+  //simple grid items rendering
   const renderItems = () => {
     return gridItemsStyles.map(item => <GridItem key={item.index} setGridItemsStyles={setGridItemsStyles} gridItemsStyles={gridItemsStyles}  index={item.index} setTotalItems={setTotalItems} />)
   };
-
+  // export grid items styles
   const exportGridItemStyles = () => {
     return (gridItemsStyles.flatMap(item => `.gridItem${item.index} {
       grid-area: ${item.gridArea};
     }
     `))
   }
-
+// export grid container styles
   const exportCode = () => {
     const gridContainerStyles = `
     .Container {
@@ -129,6 +126,8 @@ function App() {
     padding: `${padding}px`,
     margin: `${margin}px` 
   }
+
+  // handle show code snippets
   const handleShowItemsCode = () => {
     setShowCode(true)
     setShowContainerCode(false)
